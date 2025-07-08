@@ -1,10 +1,11 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
+const path = require('path')
+const fs = require('fs')
 const connectDb = require('./config/db')
 const authentifRoutes = require('./routes/authentifRoutes')
 const ajoutHotelRoutes = require('./routes/hotelRoutes')
-const path = require('path')
 
 dotenv.config()
 connectDb()
