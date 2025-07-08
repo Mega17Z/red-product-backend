@@ -11,6 +11,7 @@ exports.inscription = async (req, res) => {
 
         const hashMotdepasse = await bcrypt.hash(motdepasse, 10)
         const user = await User.create({ nom, email, motdepasse: hashMotdepasse })
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' })
         res.status(201).json({ message: "Utilisateur Inscrit", token, user: { id: user._id, email: user.email, nom: user.nom } })
     } catch (erreur) {
         console.log('Erreur serveur', erreur)
