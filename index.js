@@ -4,6 +4,7 @@ const cors = require('cors')
 const connectDb = require('./config/db')
 const authentifRoutes = require('./routes/authentifRoutes')
 const ajoutHotelRoutes = require('./routes/hotelRoutes')
+const path = require('path')
 
 dotenv.config()
 connectDb()
