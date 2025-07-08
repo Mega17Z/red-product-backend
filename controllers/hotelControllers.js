@@ -4,7 +4,7 @@ const path = require('path')
 exports.ajouterHotel = async (req, res) => {
     try{
         const { nom, adresse, email, numero, prix, devise } = req.body
-        const image = req.file ? req.file.filename : null
+        const image = req.file ? req.file.path : null
 
         if(!nom || !adresse || !prix || !devise){
             return res.status(400).json({ message: "Certains obligatoires non remplie" })
